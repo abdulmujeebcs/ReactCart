@@ -5,8 +5,8 @@ import { selectCartQuantity, selectCartTotal } from "../store/cartSlice";
 
 const Header = () => {
   const [isFocused, setIsFocused] = useState(false);
-  const cartQuantity = useAppSelector(selectCartQuantity());
-  const cartTotal = useAppSelector(selectCartTotal());
+  const cartQuantity = useAppSelector(selectCartQuantity);
+  const cartTotal = useAppSelector(selectCartTotal);
 
   return (
     <div className="navbar bg-primary text-base-100 sticky top-0 z-40 gap-4">

@@ -64,18 +64,18 @@ export const selectItemQuantity = (item: Pizza) => {
     }
 }
 
-export const selectCartQuantity = () => {
-    return (state: RootState) => {
-        // accumulator ?
-        // It essentially keeps track of the ongoing result as the reduce method iterates through each element of the array.
-        return state.cart?.items?.reduce((accumulator, nextItem) => accumulator + nextItem.quantity, 0);
-    }
+export const selectCartItems = (state: RootState) => {
+    return state.cart.items;
 }
 
-export const selectCartTotal = () => {
-    return (state: RootState) => {
-        return state.cart?.items?.reduce((accumulator, nextItem) => accumulator + (nextItem.quantity * nextItem.price), 0);
-    }
+export const selectCartQuantity = (state: RootState) => {
+    // accumulator ?
+    // It essentially keeps track of the ongoing result as the reduce method iterates through each element of the array.
+    return state.cart?.items?.reduce((accumulator, nextItem) => accumulator + nextItem.quantity, 0);
+}
+
+export const selectCartTotal = (state: RootState) => {
+    return state.cart?.items?.reduce((accumulator, nextItem) => accumulator + (nextItem.quantity * nextItem.price), 0);
 }
 
 const cartReducer = cartSlice.reducer;
