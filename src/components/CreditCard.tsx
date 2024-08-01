@@ -1,11 +1,12 @@
 import "react-credit-cards-2/dist/es/styles-compiled.css";
-import { ChangeEventHandler, FocusEventHandler, useRef, useState } from "react";
+import { ChangeEventHandler, FC, FocusEventHandler, useRef, useState } from "react";
 import {
   formatCVC,
   formatCreditCardNumber,
   formatExpirationDate,
 } from "../utils/card-utils";
 import Cards, { Focused } from "react-credit-cards-2";
+import { useKeyPress } from "../hooks/useKeyPress";
 
 type CardState = {
   number: string;
@@ -15,7 +16,12 @@ type CardState = {
   focus: undefined | Focused;
 };
 
-const CreditCard = () => {
+type CreditCardProps = {
+  submitHandler: (state: Omit<CardState, 'focus'>) => void
+}
+const CreditCard: FC<CreditCardProps> = ({
+  submitHandler
+}) => {
   const formRef = useRef<HTMLFormElement>(null);
   const [state, setState] = useState<CardState>({
     number: "",
@@ -24,6 +30,13 @@ const CreditCard = () => {
     name: "",
     focus: undefined,
   });
+
+  useKeyPress('H', () => {
+    setInputValue('number', '2222 2222 2222 2222');
+    setInputValue('cvc', '123');
+    setInputValue('expiry', '12/25');
+    setInputValue('name', 'Test User');
+  })
 
   const handleInputChange: ChangeEventHandler = (ev) => {
     const target = ev.target as HTMLInputElement;
@@ -47,8 +60,25 @@ const CreditCard = () => {
     setState((prev) => ({ ...prev, focus: targetName }));
   };
 
+  const setInputValue = (inputName: string, value: string) => {
+    const target = formRef.current?.elements.namedItem(
+      inputName
+    ) as HTMLInputElement;
+    const nativeValueSet = Object.getOwnPropertyDescriptor(
+      window.HTMLInputElement.prototype,
+      "value"
+    )?.set;
+    nativeValueSet?.call(target, value);
+    const inputEvent = new Event('input', { bubbles: true })
+    target.dispatchEvent(inputEvent);
+  }
+
   return (
-    <form ref={formRef} className="flex flex-col gap-4 items-center">
+    <form ref={formRef} onSubmit={(ev) => {
+      ev.preventDefault();
+      const {focus, ...remainingState} = state;
+      submitHandler(remainingState);
+    }} className="flex flex-col gap-4 items-center">
       <Cards
         number={state.number}
         expiry={state.expiry}
