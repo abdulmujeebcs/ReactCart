@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import BackBtn from "../components/BackBtn";
-import ProductItem from "../components/ProductItem";
 import { useAppSelector } from "../store/hooks";
 import { selectCartItems, selectCartTotal } from "../store/cartSlice";
+import ProductItem from "../components/product/ProductItem";
 
 const Cart = () => {
   const cartItems = useAppSelector(selectCartItems);

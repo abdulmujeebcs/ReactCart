@@ -1,9 +1,9 @@
-import ProductItem from "../components/ProductItem";
 import BackBtn from "../components/BackBtn";
 import { store } from "../store/store";
 import { Params, useLoaderData } from "react-router-dom";
 import { Order as IOrder } from "../store/orderSlice";
 import { onStoreReady } from "../utils/on-store-ready";
+import ProductItem from "../components/product/ProductItem";
 
 export const orderLoader = async ({ params }: { params: Params }) => {
   const { orderId } = params;

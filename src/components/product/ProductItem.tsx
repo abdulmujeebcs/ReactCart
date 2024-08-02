@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { useAppDispatch } from "../store/hooks";
-import { addItem, CartItem, deleteItem, removeItem } from "../store/cartSlice";
+import { useAppDispatch } from "../../store/hooks";
+import { addItem, CartItem, deleteItem, removeItem } from "../../store/cartSlice";
 
 export type ProductItemProps = {
   item: CartItem;

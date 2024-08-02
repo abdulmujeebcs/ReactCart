@@ -11,11 +11,11 @@ export default {
     themes: [
       {
         mytheme: {
-          primary: "#fde047",
-          secondary: "#4f46e5",
-          accent: "#fb923c",
-          neutral: "#ffffff",
-          "base-100": "#111827",
+          primary: "#1E3A8A",  // Dark Blue
+          secondary: "#4682B4",  // Steel Blue
+          accent: "#FFB6C1",  // Light Pink
+          neutral: "#F0F8FF",  // Alice Blue
+          "base-100": "#E6E6FA",  // Lavender
           info: "#06b6d4",
           success: "#10b981",
           warning: "#d97706",

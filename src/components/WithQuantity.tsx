@@ -1,8 +1,8 @@
 import { ComponentType, FC } from "react";
-import { ProductItemProps } from "./ProductItem";
 import { useAppSelector } from "../store/hooks";
 import { CartItem, selectItemQuantity } from "../store/cartSlice";
 import { Product } from "../types/Product";
+import { ProductItemProps } from "./product/ProductItem";
 
 type WithQuantityProps = {
     item: Product
