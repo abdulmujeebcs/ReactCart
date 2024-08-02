@@ -2,11 +2,11 @@ import { FC } from "react";
 import { useAppDispatch } from "../store/hooks";
 import { addItem, CartItem, deleteItem, removeItem } from "../store/cartSlice";
 
-export type MenuItemProps = {
+export type ProductItemProps = {
   item: CartItem;
   readonly?: boolean;
 };
-const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
+const ProductItem: FC<ProductItemProps> = ({ item, readonly }) => {
   const quantity = item.quantity;
    const dispatch = useAppDispatch();
 
@@ -93,4 +93,4 @@ const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
   );
 };
 
-export default MenuItem;
+export default ProductItem;
