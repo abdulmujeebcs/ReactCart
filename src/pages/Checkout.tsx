@@ -16,7 +16,7 @@ const Checkout = () => {
 
   return (
     <div className="my-6">
-      <BackBtn to={"/cart"}>Back to cart</BackBtn>
+      <BackBtn to={"/cart"}>Back to Cart</BackBtn>
       <h2 className="text-center text-3xl my-4">Checkout</h2>
       {cartItems.length ? <div className="grid grid-cols-1 my-4 p-4 md:grid-cols-2 gap-8 card bg-base-300 shadow-xl">
         <section>

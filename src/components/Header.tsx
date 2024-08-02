@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div className="navbar bg-primary text-base-100 sticky top-0 z-40 gap-4">
       <Link to={"/"} className="btn btn-ghost text-xl">
-        Pizzeria
+        ReactCart
       </Link>
       <form className="flex-1 flex justify-end">
         <input
