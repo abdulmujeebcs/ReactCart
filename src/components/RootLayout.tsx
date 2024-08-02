@@ -7,7 +7,7 @@ const RootLayout = () => {
             <Header />
             <main>
                 <div className="py-4 bg-base-100">
-                    <section className="max-w-3xl mx-auto">
+                    <section className="max-w-4xl mx-auto">
                         <Outlet />
                     </section>
                 </div>
