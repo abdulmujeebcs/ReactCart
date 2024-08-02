@@ -1,11 +1,11 @@
 import { ComponentType, FC } from "react";
-import { Pizza } from "../data/menu-items"
 import { MenuItemProps } from "./MenuItem";
 import { useAppSelector } from "../store/hooks";
 import { CartItem, selectItemQuantity } from "../store/cartSlice";
+import { Product } from "../types/Product";
 
 type WithQuantityProps = {
-    item: Pizza
+    item: Product
 }
 
 const WithQuantity = (Component: ComponentType<MenuItemProps>) => {

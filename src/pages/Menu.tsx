@@ -1,6 +1,6 @@
 import MenuItem from "../components/MenuItem";
 import WithQuantity from "../components/WithQuantity";
-import { MENU_ITEMS } from "../data/menu-items";
+import { PRODUCTS } from "../data/menu-items";
 
 const QuantifiedMenuItem = WithQuantity(MenuItem);
 
@@ -12,7 +12,7 @@ const Menu = () => {
         Pick what you crave for today
       </h2>
       <ul className="flex w-full flex-col gap-4">
-        {MENU_ITEMS.map((item) => {
+        {PRODUCTS.map((item) => {
           return <QuantifiedMenuItem key={item.id} item={item} />;
         })}
       </ul>

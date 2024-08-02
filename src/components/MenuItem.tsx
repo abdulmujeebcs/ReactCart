@@ -17,7 +17,7 @@ const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{item.title}</h2>
-        <div>{item.ingredients.join(", ")}</div>
+        <div>{item.short_description}</div>
         <div className={`card-actions justify-between items-end`}>
           <b className="font-semibold">€{item.price}</b>
           {quantity == 0 && !readonly ? <button className="btn btn-primary" onClick={() => {
