@@ -6,6 +6,7 @@ import { ReactNode } from "react";
 interface SliderProps<T> {
   dots?: boolean;
   infinite?: boolean;
+  draggable?: boolean;
   speed?: number;
   slidesToShow?: number;
   slidesToScroll?: number;
@@ -19,6 +20,7 @@ const SimpleSlider = <T extends { id: string }>({
   speed = 500,
   slidesToShow = 1,
   slidesToScroll = 1,
+  draggable = false,
   items,
   renderItem
 }: SliderProps<T>) => {
@@ -28,6 +30,7 @@ const SimpleSlider = <T extends { id: string }>({
     speed,
     slidesToShow,
     slidesToScroll,
+    draggable
   }
   return (
     <Slider {...sliderSettings}>

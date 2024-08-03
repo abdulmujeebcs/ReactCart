@@ -1,18 +1,16 @@
 import { Outlet } from "react-router-dom"
 import Header from "./Header"
 
-const RootLayout = () => {
+const HomeLayout = () => {
     return (
         <>
             <Header />
             <main>
                 <div className="py-4 bg-base-100">
-                    <section className="max-w-5xl mx-auto">
-                        <Outlet />
-                    </section>
+                    <Outlet />
                 </div>
             </main>
         </>
     )
 }
-export default RootLayout;
+export default HomeLayout;

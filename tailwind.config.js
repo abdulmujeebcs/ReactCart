@@ -15,11 +15,12 @@ export default {
     themes: [
       {
         mytheme: {
-          primary: "#1E3A8A",  // Dark Blue
-          secondary: "#4682B4",  // Steel Blue
-          accent: "#FFB6C1",  // Light Pink
-          neutral: "#F0F8FF",  // Alice Blue
-          "base-100": "#E6E6FA",  // Lavender
+          primary: "#FF8C00",  // Darker Orange
+          secondary: "#FFA500",  // Lime Green
+          accent: "#FFD700",  // Gold
+          neutral: "#FFFFFF",  // White
+          "base-100": "#F5F5F5",  // White Smoke
+          "base-200": "#FAFAFA",  // White Smoke
           info: "#06b6d4",
           success: "#10b981",
           warning: "#d97706",

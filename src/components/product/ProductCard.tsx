@@ -12,18 +12,17 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     const dispatch = useAppDispatch();
 
     return (
-        <div className={`card bg-base-100 shadow-xl ${styles.card}`}>
+        <div className={`card bg-base-100 w-60 shadow-xl ml-3 ${styles.card}`}>
             <figure className={styles.figure}>
                 <img
                     src={`/images/pizzas/${product.image}`}
                     alt={product.title}
-                    className={styles.image}
                 />
             </figure>
-            <div className={`card-body ${styles.cardBody}`}>
+            <div className={`card-body flex justify-center items-center ${styles.cardBody}`}>
                 <h2 className={`card-title ${styles.cardTitle}`}>{product.title}</h2>
-                <h2>€{product.price}</h2>
-                <div className={`card-actions justify-center mt-3 ${styles.cardActions}`}>
+                <h2 className="text-primary text-lg">€{product.price}</h2>
+                <div className={`card-actions mt-3 ${styles.cardActions}`}>
                     <button className="btn btn-primary w-full"
                         onClick={() => {
                             dispatch(addItem(product));

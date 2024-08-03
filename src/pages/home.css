@@ -1,0 +1,39 @@
+.flex-container {
+  display: flex;
+  margin: 0 30px;
+  flex-direction: row; /* Ensure items are in a row */
+  align-items: center; /* Align items vertically centered */
+  justify-content: space-between; /* Adjust as needed to control space between items */
+}
+
+.image-container {
+  flex: 0 1 auto; 
+  max-width: 450px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.slider-container {
+  width: 100%;
+  flex: 1; /* Allow the slider container to take the remaining space */
+  overflow: hidden;
+}
+
+.slick-slide {
+  display: flex !important; /* Ensure slick-slide elements are flex items */
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column; /* Stack items vertically on small screens */
+  }
+
+  .image-container, .slider-container {
+    max-width: 100%; /* Full width for both image and slider containers */
+  }
+}

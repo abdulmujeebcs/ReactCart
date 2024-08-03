@@ -1,30 +1,33 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useAppSelector } from "../store/hooks";
 import { selectCartQuantity, selectCartTotal } from "../store/cartSlice";
 
 const Header = () => {
-  const [isFocused, setIsFocused] = useState(false);
   const cartQuantity = useAppSelector(selectCartQuantity);
   const cartTotal = useAppSelector(selectCartTotal);
 
   return (
-    <div className="navbar bg-primary text-base-100 sticky top-0 z-40 gap-4">
-      <Link to={"/"} className="btn btn-ghost text-xl">
+    <div className="navbar bg-primary sticky top-0 z-40 gap-4">
+      <Link to={"/"} className="text-base-100 btn btn-ghost text-xl">
         ReactCart
       </Link>
-      <form className="flex-1 flex justify-end">
-        <input
-          name="orderId"
-          required
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          type="text"
-          placeholder={isFocused ? "Enter order#" : "Find your order"}
-          className="input text-neutral-100 input-bordered w-full md:w-auto"
-        />
+      <form className="flex-1 flex justify-center">
+        <div className="relative w-full md:w-2/3">
+          <input
+            name="orderId"
+            required
+            type="text"
+            placeholder="What are you looking for?"
+            className="input input-bordered w-full pr-12"
+          />
+          <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1117.5 10.5a7.5 7.5 0 01-4.35 6.65z" />
+            </svg> Search
+          </button>
+        </div>
       </form>
-      <div className="flex-none">
+      <div className="flex-none text-base-100">
         <div className="font-semibold gap-1 flex">
           <span className="hidden md:flex">Cart total: </span>
           <span>€{cartTotal}</span>{" "}
