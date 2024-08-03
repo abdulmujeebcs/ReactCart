@@ -1,20 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../store/hooks";
 import { selectCartQuantity, selectCartTotal } from "../store/cartSlice";
+import { ChangeEventHandler, FormEvent, useState } from "react";
 
 const Header = () => {
+  const [search, setSearch] = useState<String>('');
   const cartQuantity = useAppSelector(selectCartQuantity);
   const cartTotal = useAppSelector(selectCartTotal);
+  const navigate = useNavigate();
+
+  const handleSearch: ChangeEventHandler = (ev) => {
+    const target = ev.target as HTMLInputElement;
+    setSearch(target.value);
+  }
+
+  const handleForm = (ev: FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+    if (search) {
+      navigate(`/search?search=${search}`)
+    }
+  }
 
   return (
     <div className="navbar bg-primary sticky top-0 z-40 gap-4">
       <Link to={"/"} className="text-base-100 btn btn-ghost text-xl">
         ReactCart
       </Link>
-      <form className="flex-1 flex justify-center">
+      <form className="flex-1 flex justify-center" onSubmit={handleForm}>
         <div className="relative w-full md:w-2/3">
           <input
-            name="orderId"
+            name="search"
+            onChange={handleSearch}
+            autoComplete="off"
             required
             type="text"
             placeholder="What are you looking for?"
