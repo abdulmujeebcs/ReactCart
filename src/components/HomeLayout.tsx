@@ -6,7 +6,7 @@ const HomeLayout = () => {
         <>
             <Header />
             <main>
-                <div className="py-4 bg-base-100">
+                <div className="py-4 bg-base-300">
                     <Outlet />
                 </div>
             </main>

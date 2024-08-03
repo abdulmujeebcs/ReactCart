@@ -4,6 +4,8 @@ import ProductCard from "../components/product/ProductCard";
 import { BANNERS } from "../data/banners";
 import Banner from "../components/Banner";
 import './home.css'
+import FeatureBrand from "../components/FeatureBrand";
+import { FEATURED_BRANDS } from "../data/featured-brands";
 
 const Home = () => {
   return <>
@@ -37,6 +39,14 @@ const Home = () => {
         slidesToScroll={1}
         renderItem={(item) => <ProductCard product={item} key={item.id} />}
       />
+    </div>
+
+    <div className="py-8 m-5">
+      <h3 className="font-semibold py-4">Featured Brands</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      {FEATURED_BRANDS.map(brand => (<FeatureBrand brand={brand} />)
+        )}
+      </div>
     </div>
   </>
 };
