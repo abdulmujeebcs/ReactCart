@@ -31,8 +31,16 @@ const Home = () => {
       </div>
     </div>
 
+    <div className="py-8 m-5">
+      <h3 className="font-semibold py-4">Featured Brands</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      {FEATURED_BRANDS.map(brand => (<FeatureBrand brand={brand} />)
+        )}
+      </div>
+    </div>
+
     <div className="mt-5 py-4">
-      <h1 className="text-4xl p-5 font-semibold">Spicy Pizza</h1>
+      <h1 className="ml-5 font-semibold py-4">Spicy Pizza Category</h1>
       <SimpleSlider
         items={PRODUCTS}
         slidesToShow={5}
@@ -41,13 +49,6 @@ const Home = () => {
       />
     </div>
 
-    <div className="py-8 m-5">
-      <h3 className="font-semibold py-4">Featured Brands</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-      {FEATURED_BRANDS.map(brand => (<FeatureBrand brand={brand} />)
-        )}
-      </div>
-    </div>
   </>
 };
 
