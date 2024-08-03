@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom";
 import BackBtn from "../components/BackBtn";
-import MenuItem from "../components/MenuItem";
 import { useAppSelector } from "../store/hooks";
 import { selectCartItems, selectCartTotal } from "../store/cartSlice";
+import ProductItem from "../components/product/ProductItem";
 
 const Cart = () => {
   const cartItems = useAppSelector(selectCartItems);
   const cartTotal = useAppSelector(selectCartTotal);
   return (
     <div className="my-6 flex flex-col items-center gap-4">
-      <BackBtn to={"/menu"}>Back to menu</BackBtn>
+      <BackBtn to={"/"}>Back to Home</BackBtn>
       <h2 className="text-3xl">Cart</h2>
       {cartItems.length ? (
         <>
           <ul className="my-4 w-full flex flex-col gap-4">
             {cartItems.map(item => {
               return (<li key={item.id}>
-                <MenuItem item={item} />
+                <ProductItem item={item} />
               </li>)
             })}
           </ul>

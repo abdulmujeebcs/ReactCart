@@ -3,19 +3,24 @@ import Home from "../pages/Home";
 import Order, { orderLoader } from "../pages/Order";
 import Checkout from "../pages/Checkout";
 import Cart from "../pages/Cart";
-import Menu from "../pages/Menu";
 import RootLayout from "../components/RootLayout";
 import OrderNotFound from "../pages/OrderNotFound";
+import HomeLayout from "../components/HomeLayout";
+import Search from "../pages/Search";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path="/" element={<RootLayout />}>
-            <Route index={true} element={<Home />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route loader={orderLoader} errorElement={<OrderNotFound />} path="/order/:orderId" element={<Order />} />
-        </Route>
+        <>
+            <Route path="/" element={<RootLayout />}>
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/search" element={<Search />} />
+                <Route loader={orderLoader} errorElement={<OrderNotFound />} path="/order/:orderId" element={<Order />} />
+            </Route>
+            <Route path="/" element={<HomeLayout />}>
+                <Route index={true} element={<Home />} />
+            </Route>
+        </>
     )
 )
 export default router;

@@ -78,7 +78,7 @@ const CreditCard: FC<CreditCardProps> = ({
       ev.preventDefault();
       const {focus, ...remainingState} = state;
       submitHandler(remainingState);
-    }} className="flex flex-col gap-4 items-center">
+    }} className="flex flex-col gap-4 items-center text-center">
       <Cards
         number={state.number}
         expiry={state.expiry}
@@ -87,7 +87,7 @@ const CreditCard: FC<CreditCardProps> = ({
         focused={state.focus}
       />
       <div className="form-inputs w-full px-8 flex flex-col gap-4">
-        <div className="flex flex-col gap-2 w-full">
+        <div>
           <input
             type="text"
             name="number"
@@ -98,7 +98,7 @@ const CreditCard: FC<CreditCardProps> = ({
             onChange={handleInputChange}
             onFocus={handleInputFocus}
           />
-          <small>Eg: XXXX XXXX XXXX XXXX(XXX)</small>
+          <small className="block">Eg: XXXX XXXX XXXX XXXX(XXX)</small>
         </div>
         <div>
           <input
@@ -125,7 +125,7 @@ const CreditCard: FC<CreditCardProps> = ({
         </div>
         <div>
           <input
-            type="tel"
+            type="password"
             name="cvc"
             className="input input-bordered w-full max-w-xs"
             placeholder="CVC"

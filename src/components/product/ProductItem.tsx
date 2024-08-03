@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { useAppDispatch } from "../store/hooks";
-import { addItem, CartItem, deleteItem, removeItem } from "../store/cartSlice";
+import { useAppDispatch } from "../../store/hooks";
+import { addItem, CartItem, deleteItem, removeItem } from "../../store/cartSlice";
 
-export type MenuItemProps = {
+export type ProductItemProps = {
   item: CartItem;
   readonly?: boolean;
 };
-const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
+const ProductItem: FC<ProductItemProps> = ({ item, readonly }) => {
   const quantity = item.quantity;
    const dispatch = useAppDispatch();
 
@@ -17,7 +17,7 @@ const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{item.title}</h2>
-        <div>{item.ingredients.join(", ")}</div>
+        <div>{item.short_description}</div>
         <div className={`card-actions justify-between items-end`}>
           <b className="font-semibold">€{item.price}</b>
           {quantity == 0 && !readonly ? <button className="btn btn-primary" onClick={() => {
@@ -93,4 +93,4 @@ const MenuItem: FC<MenuItemProps> = ({ item, readonly }) => {
   );
 };
 
-export default MenuItem;
+export default ProductItem;

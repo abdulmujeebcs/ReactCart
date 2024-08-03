@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 0;
+}
+
+.cardBody {
+  flex: 1!important;
+}
+
+.figure {
+  margin: 0;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+}
+
+.cardActions {
+  margin-top: auto;
+}

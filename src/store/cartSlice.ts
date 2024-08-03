@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Pizza } from "../data/menu-items";
 import { RootState } from "./store";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
+import { Product } from "../types/Product";
 
-export type CartItem = Pizza & {
+export type CartItem = Product & {
     quantity: number;
 }
 
@@ -19,7 +19,7 @@ export const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
-        addItem: (state, action: PayloadAction<Pizza>) => {
+        addItem: (state, action: PayloadAction<Product>) => {
             const matchingItem = state.items.find(existingItem => {
                 return existingItem.id === action.payload.id;
             });
@@ -32,7 +32,7 @@ export const cartSlice = createSlice({
                 matchingItem.quantity++;
             }
         },
-        removeItem: (state, action: PayloadAction<Pizza>) => {
+        removeItem: (state, action: PayloadAction<Product>) => {
             const matchingItem = state.items.find(existingItem => {
                 return existingItem.id === action.payload.id;
             });
@@ -45,7 +45,7 @@ export const cartSlice = createSlice({
                 }
             }
         },
-        deleteItem: (state, action: PayloadAction<Pizza>) => {
+        deleteItem: (state, action: PayloadAction<Product>) => {
             state.items = state.items.filter(existingItem => {
                 return existingItem.id !== action.payload.id;
             });
@@ -58,9 +58,9 @@ export const cartSlice = createSlice({
 
 export const { addItem, removeItem, deleteItem, resetCart } = cartSlice.actions;
 
-export const selectItemQuantity = (item: Pizza) => {
+export const selectItemQuantity = (item: Product) => {
     return (state: RootState) => {
-        const matchingItem = state.cart?.items?.find((existingItem: Pizza) => {
+        const matchingItem = state.cart?.items?.find((existingItem: Product) => {
             return existingItem.id === item.id;
         });
         return matchingItem?.quantity || 0;
