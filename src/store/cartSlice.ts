@@ -78,7 +78,10 @@ export const selectCartQuantity = (state: RootState) => {
 }
 
 export const selectCartTotal = (state: RootState) => {
-    return state.cart?.items?.reduce((accumulator, nextItem) => accumulator + (nextItem.quantity * nextItem.price), 0);
+    return Number(
+        state.cart?.items?.reduce((accumulator, nextItem) => accumulator + (nextItem.quantity * nextItem.price), 0)
+            .toFixed(2)
+    );
 }
 
 const cartReducer = cartSlice.reducer;
